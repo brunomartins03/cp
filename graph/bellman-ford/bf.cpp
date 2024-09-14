@@ -23,9 +23,9 @@ pair<vi, vi> bellman_ford(int s, int n, const vector<edge>& edges) {
 vector<pair<int, int>> path(int s, int u, const vector<int>& pred) {
     vector<pair<int, int>> p;
     int v = u;
-
     do {
         p.emplace_back(pred[v], v);
+        v = pred[v];
     } while(v != s);
     reverse(p.begin(), p.end());
     return p;
